@@ -1,0 +1,96 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* White background */
+    color: #000000; /* Black text */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.hero.is-light {
+    background-color: #ffffff; /* White background */
+    color: #000000; /* Black text */
+}
+
+.hero .title, .hero .subtitle {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Header Image */
+.hero .image img {
+    border-radius: 50%; /* Round photo */
+    border: 3px solid #000000; /* Black border */
+}
+
+/* Contact Buttons */
+.buttons .button {
+    border: none;
+}
+
+.buttons .button.is-dark {
+    background-color: #000000; /* Black button for GitHub */
+    color: #ffffff;
+}
+
+.buttons .button.is-dark:hover {
+    background-color: #333333;
+}
+
+.buttons .button.is-info {
+    background-color: #209CEE; /* Blue button for LinkedIn */
+    color: #ffffff;
+}
+
+.buttons .button.is-info:hover {
+    background-color: #17A2B8; /* Slightly darker blue */
+}
+
+.buttons .button.is-danger {
+    background-color: #FF3860; /* Red button for Email */
+    color: #ffffff;
+}
+
+.buttons .button.is-danger:hover {
+    background-color: #FF6B81; /* Slightly darker red */
+}
+
+.buttons .button.is-success {
+    background-color: #23D160; /* Green button for CV */
+    color: #ffffff;
+}
+
+.buttons .button.is-success:hover {
+    background-color: #39C98D; /* Slightly darker green */
+}
+
+/* Projects */
+.columns.is-vcentered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.columns .column img {
+    max-width: 100%; /* Make images responsive */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for images */
+}
+
+.columns .column a {
+    color: #000000; /* Black text */
+    text-decoration: none;
+}
+
+.columns .column a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #000000; /* Dark footer background */
+    color: #ffffff; /* White footer text */
+    padding: 10px;
+    text-align: center;
+}
