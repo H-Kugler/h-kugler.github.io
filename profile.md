@@ -10,7 +10,6 @@ permalink: /
 title: Harald Kugler                  # your name
 position: PhD student
 affiliation: University of Copenhagen
-affiliation_url: https://cocala.github.io
 
 email: hku@math.ku.dk
 
@@ -29,6 +28,10 @@ links:
   # - label: CV
   #   url: /assets/cv.pdf
 
+# Shown with a pawn link in the footer of every page. Delete both lines to hide it.
+chess_text: Now and then I play chess. Feel free to challenge me
+chess: https://www.chess.com/member/harrik31
+
 interests:
   - causality
   - performative prediction
@@ -38,11 +41,11 @@ interests:
 # markdown links like [this](https://example.com). Delete old items freely.
 news:
   - date: "Nov 2026"
-    text: Our paper *Causal discovery needs explicit epistemic standards* is now on [arXiv](https://arxiv.org/abs/2611.03166).
+    text: Our NeurIPS position paper is now on [arXiv](https://arxiv.org/abs/2611.03166).
   - date: "Sep 2026"
-    text: The first paper of my PhD was accepted to the position paper track at NeurIPS 2026.
+    text: Our paper *Causal discovery needs explicit epistemic standards* was accepted to the position paper track at NeurIPS 2026.
   - date: "Jul 2026"
-    text: Our paper *Two-Stage Causal Discovery with FLOP and DirectLiNGAM* was accepted at the [Causality for Decision Making](https://sites.google.com/view/uai-workshop-2026/home) workshop at UAI 2026 in Amsterdam. See you there!
+    text: Our paper *Two-Stage Causal Discovery with FLOP and DirectLiNGAM* was accepted at the [Causality for Decision Making](https://sites.google.com/view/uai-workshop-2026/home) workshop at UAI 2026 in Amsterdam.
   - date: "Sep 2025"
     text: Started my PhD in the [Copenhagen Causality Lab](https://cocala.github.io) at the University of Copenhagen.
   - date: "Oct 2024"

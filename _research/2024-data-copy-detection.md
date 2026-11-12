@@ -8,5 +8,5 @@ links:
   Code: https://github.com/H-Kugler/scalable-datacopy-detection
 ---
 
-Detecting training-data copies in generative-model samples by aggregating cheap
-nearest-neighbour tests over many random low-dimensional projections.
+Explores detecting data-copying in generative models by comparing generated
+samples and training data after random linear projections.

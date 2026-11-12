@@ -26,7 +26,11 @@
 <div class="page">
 {% include header.html %}
 {{ content }}
-<footer>© {{ site.time | date: '%Y' }} {{ site.title }}</footer>
+{% assign profile = site.pages | where: "permalink", "/" | first %}
+<footer>
+  <span>© {{ site.time | date: '%Y' }} {{ site.title }}</span>
+  {% if profile.chess %}<span>{{ profile.chess_text }} <a class="pawn" href="{{ profile.chess }}" title="Challenge me on chess.com" aria-label="Challenge me on chess.com">♟︎</a></span>{% endif %}
+</footer>
 </div>
 <script>
   // Email links carry the address reversed, so it isn't sitting in the HTML

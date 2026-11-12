@@ -8,7 +8,7 @@ links:
   PDF: https://arxiv.org/pdf/2611.03166
 ---
 
-Causal discovery algorithms are compared through identifiability, consistency
-and benchmarks, each resting on untestable assumptions. We argue for making the
-standards for judging those assumptions explicit, and for designing benchmarks
-that stress-test them.
+Causal discovery methods are usually compared via identifiability, consistency
+and benchmarks, each of which introduces assumptions that are often untestable.
+We argue that the epistemic standards for discussing these assumptions should be
+made explicit, and that benchmarks should be designed to operationalize them.

@@ -8,6 +8,7 @@ links:
   PDF: https://openreview.net/pdf?id=yRrqMlWbQO
 ---
 
-Combines FLOP and DirectLiNGAM in a two-stage causal discovery procedure.
-Presented at the [Causality for Decision Making](https://sites.google.com/view/uai-workshop-2026/home)
-workshop at UAI 2026 in Amsterdam.
+FLOP+DL estimates the Markov equivalence class with FLOP and then orients the
+edges left undirected with DirectLiNGAM. Accepted at the
+[Causality for Decision Making](https://sites.google.com/view/uai-workshop-2026/home)
+workshop at UAI 2026.

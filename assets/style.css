@@ -40,6 +40,7 @@ a.u:hover, .prose a:hover { text-decoration-color: var(--accent); }
 
 .muted { color: var(--muted); }
 
+
 .page { padding: clamp(1.25rem, 3.5vw, 3rem); max-width: 100rem; margin: 0 auto; }
 
 html { scroll-padding-top: 4.5rem; scroll-behavior: smooth; }
@@ -151,7 +152,13 @@ pre { background: var(--code-bg); padding: 1rem 1.25rem; overflow-x: auto; line-
 .post .prose, .post .back { margin-left: calc(var(--when) + 2rem); max-width: 75ch; }
 .back { margin-top: 3rem; }
 
-footer { color: var(--muted); padding-top: 1rem; border-top: 1px solid var(--rule); }
+footer {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem 1.5rem;
+  color: var(--muted); padding-top: 1rem; border-top: 1px solid var(--rule);
+}
+/* The chess pawn: a link without an underline */
+footer .pawn { color: var(--fg); font-size: 1.6em; line-height: 1; vertical-align: -0.08em; margin-left: 0.2em; }
+footer .pawn:hover { color: var(--accent); }
 
 /* Narrow screens -------------------------------------------------------- */
 @media (max-width: 860px) {
