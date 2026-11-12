@@ -1,0 +1,104 @@
+---
+layout: default
+---
+{% assign research = site.research | sort: 'date' | reverse %}
+
+<header class="hero">
+  <h1>{{ page.title }}</h1>
+  <p class="tagline">
+    {{ page.position }}{% if page.position and page.affiliation %} · {% endif %}
+    {%- if page.affiliation_url %}<a href="{{ page.affiliation_url }}">{{ page.affiliation }}</a>{% else %}{{ page.affiliation }}{% endif %}
+  </p>
+  <ul class="hero-links">
+    {% if page.email %}<li><a href="#" data-email="{{ page.email | split: '' | reverse | join: '' }}" aria-label="Email">{% include icon.html name="email" %}</a></li>{% endif %}
+    {% for link in page.links %}
+    {% assign icon = link.icon | default: link.label %}
+    <li><a href="{{ link.url | relative_url }}" aria-label="{{ link.label }}" title="{{ link.label }}">{% include icon.html name=icon %}</a></li>
+    {% endfor %}
+  </ul>
+</header>
+
+<main>
+  <section id="about">
+    <h2>About</h2>
+    <div class="intro prose">
+      {{ content }}
+      {% if page.interests.size > 0 %}<p class="muted">Interests: {{ page.interests | join: ', ' }}.</p>{% endif %}
+    </div>
+  </section>
+
+  {% if page.news.size > 0 %}
+  <section id="news">
+    <h2>News</h2>
+    {% for item in page.news %}
+    <div class="row">
+      <span class="when">{{ item.date }}</span>
+      <div class="span prose-inline">{{ item.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if research.size > 0 %}
+  <section id="research">
+    <h2>Research</h2>
+    {% for paper in research %}
+    <div class="row">
+      <span class="when">{{ paper.date | date: '%Y' }}</span>
+      <div>
+        <div class="title">{{ paper.title }}</div>
+        {% if paper.authors %}<div class="desc">{{ paper.authors | markdownify | remove: '<p>' | remove: '</p>' | strip }}</div>{% endif %}
+        <div class="desc">{{ paper.content | markdownify | remove: '<p>' | remove: '</p>' | strip }}</div>
+      </div>
+      <span class="kind">{{ paper.venue }}</span>
+      <span class="links">{% for link in paper.links %}<a href="{{ link[1] | relative_url }}">{{ link[0] }}</a>{% endfor %}</span>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if page.experience.size > 0 %}
+  <section id="experience">
+    <h2>Experience</h2>
+    {% for item in page.experience %}
+    <div class="row">
+      <span class="when">{{ item.years }}</span>
+      <div>
+        <div class="title">{{ item.role }}</div>
+        {% if item.description %}<div class="desc">{{ item.description | markdownify | remove: '<p>' | remove: '</p>' | strip }}</div>{% endif %}
+      </div>
+      <span class="kind">{{ item.organization }}</span>
+      <span></span>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if page.education.size > 0 %}
+  <section id="education">
+    <h2>Education</h2>
+    {% for item in page.education %}
+    <div class="row">
+      <span class="when">{{ item.years }}</span>
+      <span>{{ item.degree }}</span>
+      <span class="kind">{{ item.institution }}</span>
+      <span></span>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if site.posts.size > 0 %}
+  <section id="writing">
+    <h2>Writing</h2>
+    {% for post in site.posts %}
+    <a class="row" href="{{ post.url | relative_url }}">
+      <span class="when">{{ post.date | date: '%Y' }}</span>
+      <span class="title">{{ post.title }}</span>
+      <span class="kind">{{ post.category }}</span>
+      <time class="kind right" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d' }}</time>
+    </a>
+    {% endfor %}
+  </section>
+  {% endif %}
+</main>

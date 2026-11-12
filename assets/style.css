@@ -1,0 +1,166 @@
+/* Colours live here. The theme follows the system setting until someone
+   uses the toggle; dark values are defined twice so it also works with JS off. */
+:root {
+  --bg: #fbfbf9;
+  --fg: #1b1b1b;
+  --muted: #85857f;
+  --rule: #e5e5e0;
+  --hover: #f0f0ea;
+  --code-bg: #f1f1ec;
+  --accent: #0a7a52;
+  --figure-bg: transparent;
+  --when: 13ch;  /* width of the year column, shared by every row */
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101110; --fg: #dcdcd6; --muted: #7b7b75; --rule: #262725; --hover: #191a18;
+    --code-bg: #1a1b19; --accent: #5fd3a0; --figure-bg: #f1f1ec; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101110; --fg: #dcdcd6; --muted: #7b7b75; --rule: #262725; --hover: #191a18;
+  --code-bg: #1a1b19; --accent: #5fd3a0; --figure-bg: #f1f1ec; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 14px/1.65 "JetBrains Mono", ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--fg); text-decoration: none; }
+a:hover { color: var(--accent); }
+a.u, .prose a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+a.u:hover, .prose a:hover { text-decoration-color: var(--accent); }
+
+.muted { color: var(--muted); }
+
+.page { padding: clamp(1.25rem, 3.5vw, 3rem); max-width: 100rem; margin: 0 auto; }
+
+html { scroll-padding-top: 4.5rem; scroll-behavior: smooth; }
+
+/* Top bar: section links, stays put while scrolling -------------------- */
+.topnav {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; gap: 2rem;
+  padding: 1rem 0 1.5rem; margin-top: -1rem;
+  background: linear-gradient(to bottom, var(--bg) 65%, transparent);
+}
+.topnav .home { font-weight: 600; }
+.topnav ul { list-style: none; margin: 0 0 0 auto; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.75rem; }
+.topnav ul a { color: var(--muted); }
+.topnav ul a:hover { color: var(--accent); }
+
+.theme-toggle {
+  display: inline-grid; place-items: center; flex-shrink: 0;
+  width: 32px; height: 32px; padding: 0;
+  background: none; border: 1px solid var(--rule); color: var(--muted); cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.theme-toggle .icon { width: 15px; height: 15px; }
+/* moon in light mode, sun in dark mode */
+.theme-toggle .when-light { display: contents; }
+.theme-toggle .when-dark { display: none; }
+[data-theme="dark"] .theme-toggle .when-light { display: none; }
+[data-theme="dark"] .theme-toggle .when-dark { display: contents; }
+:root:not([data-theme]) .theme-toggle { display: none; } /* no JS, no toggle */
+
+/* Intro block: name, tagline, links ---------------------------------- */
+.hero { padding: clamp(1.5rem, 5vw, 4rem) 0 clamp(2.5rem, 5vw, 4rem); }
+.hero h1 { font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
+.tagline { margin: 0.75rem 0 0; color: var(--muted); font-size: clamp(14px, 1.3vw, 16px); }
+.tagline a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.tagline a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+.hero-links { list-style: none; margin: 1.5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.hero-links a {
+  display: inline-grid; place-items: center;
+  width: 38px; height: 38px;
+  border: 1px solid var(--rule); color: var(--fg);
+  transition: border-color 0.15s, color 0.15s, transform 0.15s;
+}
+.hero-links .icon { width: 18px; height: 18px; }
+.hero-links a:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+/* About text: lines up with the title column of the rows below -------- */
+.intro {
+  padding: 1rem 0 0 calc(var(--when) + 2rem);
+  max-width: calc(var(--when) + 2rem + 72ch);
+}
+
+/* Sections and rows ---------------------------------------------------- */
+section { margin-bottom: 3.5rem; }
+h2 {
+  display: flex; justify-content: space-between;
+  font-size: 14px; font-weight: 600;
+  margin: 0; padding: 0.6rem 0;
+  border-bottom: 1px solid var(--fg);
+}
+h2 span { color: var(--muted); font-weight: 400; }
+
+.row {
+  display: grid; grid-template-columns: var(--when) minmax(0, 1fr) 18ch 12ch;
+  gap: 2rem; padding: 0.7rem 0.5rem; margin: 0 -0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.row:hover { background: var(--hover); }
+a.row:hover { color: var(--fg); }
+a.row:hover .title { color: var(--accent); }
+.row .when, .row .kind { color: var(--muted); }
+.row .right { text-align: right; }
+.row .title { font-weight: 600; }
+.row .desc { color: var(--muted); margin-top: 0.2rem; max-width: 90ch; }
+.row .span { grid-column: 2 / -1; max-width: 90ch; }   /* News text runs across the row */
+.prose-inline a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.prose-inline a:hover { text-decoration-color: var(--accent); }
+.row .links { display: flex; justify-content: flex-end; gap: 1rem; }
+.row .links a::before { content: "↗ "; color: var(--muted); }
+
+/* Running text (bio, posts) -------------------------------------------- */
+.prose > :first-child { margin-top: 0; }
+.prose > :last-child { margin-bottom: 0; }
+.prose p, .prose ul, .prose ol, .prose blockquote, .prose table, .prose pre { margin: 0 0 1em; }
+.prose h2 { display: block; border: 0; padding: 0; margin: 2.5em 0 0.75em; }
+.prose h3 { font-size: 14px; margin: 2em 0 0.5em; color: var(--muted); }
+.prose li { margin-bottom: 0.25em; }
+.prose blockquote { margin-left: 0; padding-left: 1.25rem; border-left: 1px solid var(--fg); color: var(--muted); }
+.prose img { display: block; max-width: 100%; margin: 2rem 0; background: var(--figure-bg); }
+.prose hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+.prose table { border-collapse: collapse; }
+.prose th, .prose td { border-bottom: 1px solid var(--rule); padding: 0.35rem 1.5rem 0.35rem 0; text-align: left; }
+
+code, pre { font-family: inherit; font-size: 13px; }
+:not(pre) > code { background: var(--code-bg); padding: 0.1em 0.35em; }
+pre { background: var(--code-bg); padding: 1rem 1.25rem; overflow-x: auto; line-height: 1.55; }
+.highlight .c, .highlight .c1, .highlight .cm { color: var(--muted); font-style: italic; }
+.highlight .k, .highlight .kn, .highlight .kd, .highlight .s, .highlight .s1, .highlight .s2 { color: var(--accent); }
+
+/* Post page ------------------------------------------------------------ */
+.post { padding: 2.5rem 0 1rem; }
+.post-head {
+  display: grid; grid-template-columns: var(--when) 1fr; gap: 2rem;
+  padding-bottom: 0.6rem; margin-bottom: 2rem; border-bottom: 1px solid var(--fg);
+}
+.post-head .when { color: var(--muted); }
+.post-head h1 { font-size: 14px; font-weight: 600; margin: 0; }
+.post .prose, .post .back { margin-left: calc(var(--when) + 2rem); max-width: 75ch; }
+.back { margin-top: 3rem; }
+
+footer { color: var(--muted); padding-top: 1rem; border-top: 1px solid var(--rule); }
+
+/* Narrow screens -------------------------------------------------------- */
+@media (max-width: 860px) {
+  .topnav { gap: 1rem; }
+  .topnav ul { gap: 0.25rem 1rem; font-size: 13px; }
+  .intro { padding-left: 0; }
+  .row { grid-template-columns: var(--when) 1fr; gap: 0.25rem 1rem; }
+  .row > :empty { display: none; }
+  .row .kind, .row .links { grid-column: 2; justify-content: flex-start; text-align: left; }
+  .post-head { grid-template-columns: 1fr; gap: 0.25rem; }
+  .post .prose, .post .back { margin-left: 0; }
+}

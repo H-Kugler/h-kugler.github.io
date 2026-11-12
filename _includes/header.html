@@ -1,0 +1,20 @@
+{%- comment -%}
+  Sticky top bar on every page: jumps to the homepage sections.
+  On blog posts it also shows your name on the left, as the way home.
+{%- endcomment -%}
+{% assign profile = site.pages | where: "permalink", "/" | first %}
+<nav class="topnav" aria-label="Sections">
+  {% if page.permalink != "/" %}<a class="home" href="{{ '/' | relative_url }}">{{ profile.title }}</a>{% endif %}
+  <ul>
+    <li><a href="{{ '/#about' | relative_url }}">About</a></li>
+    {% if profile.news.size > 0 %}<li><a href="{{ '/#news' | relative_url }}">News</a></li>{% endif %}
+    {% if site.research.size > 0 %}<li><a href="{{ '/#research' | relative_url }}">Research</a></li>{% endif %}
+    {% if profile.experience.size > 0 %}<li><a href="{{ '/#experience' | relative_url }}">Experience</a></li>{% endif %}
+    {% if profile.education.size > 0 %}<li><a href="{{ '/#education' | relative_url }}">Education</a></li>{% endif %}
+    {% if site.posts.size > 0 %}<li><a href="{{ '/#writing' | relative_url }}">Writing</a></li>{% endif %}
+  </ul>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+    <span class="when-light">{% include icon.html name="moon" %}</span>
+    <span class="when-dark">{% include icon.html name="sun" %}</span>
+  </button>
+</nav>

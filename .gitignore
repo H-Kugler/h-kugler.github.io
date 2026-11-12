@@ -1,0 +1,6 @@
+.DS_Store
+._*
+
+# Jekyll build output (GitHub builds this; never commit it)
+_site/
+.jekyll-cache/

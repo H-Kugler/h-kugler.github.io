@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title and page.title != site.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<script>
+  // Pick the theme before the page paints, so it never flashes the wrong one:
+  // a choice saved by the toggle wins, otherwise follow the system setting.
+  (function () {
+    var theme;
+    try { theme = localStorage.getItem('theme'); } catch (e) {}
+    if (theme !== 'light' && theme !== 'dark') {
+      theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+<div class="page">
+{% include header.html %}
+{{ content }}
+<footer>© {{ site.time | date: '%Y' }} {{ site.title }}</footer>
+</div>
+<script>
+  // Email links carry the address reversed, so it isn't sitting in the HTML
+  // in readable form for scrapers. This flips it back.
+  document.querySelectorAll('[data-email]').forEach(function (a) {
+    var address = a.dataset.email.split('').reverse().join('');
+    a.href = 'mailto:' + address;
+    a.title = address;
+  });
+
+  // Links to other websites open in a new tab, so visitors keep this page.
+  document.querySelectorAll('a[href^="http"]').forEach(function (a) {
+    if (a.hostname !== location.hostname) {
+      a.target = '_blank';
+      a.rel = 'noopener';
+    }
+  });
+
+  // Light/dark toggle.
+  (function () {
+    var root = document.documentElement;
+    var button = document.getElementById('themeToggle');
+    var system = matchMedia('(prefers-color-scheme: dark)');
+
+    function apply(theme) {
+      root.setAttribute('data-theme', theme);
+      button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    apply(root.getAttribute('data-theme'));
+
+    button.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      apply(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+
+    // Until someone uses the toggle, keep following the system setting.
+    system.addEventListener('change', function (e) {
+      var saved;
+      try { saved = localStorage.getItem('theme'); } catch (err) {}
+      if (!saved) apply(e.matches ? 'dark' : 'light');
+    });
+  })();
+</script>
+</body>
+</html>

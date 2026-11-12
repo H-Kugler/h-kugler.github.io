@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<main class="post">
+  <div class="post-head">
+    <time class="when" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y-%m-%d' }}</time>
+    <h1>{{ page.title }}</h1>
+  </div>
+  <article class="prose">
+    {{ content }}
+  </article>
+  <p class="back"><a class="u" href="{{ '/' | relative_url }}">← All posts</a></p>
+</main>

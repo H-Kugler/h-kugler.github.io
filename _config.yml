@@ -1,0 +1,31 @@
+# Site settings. GitHub Pages reads this and builds the site on every push.
+# The text of the site lives in markdown files — see README.md for where.
+
+title: Harald Kugler
+description: PhD student at the University of Copenhagen, working on causality.
+url: "https://h-kugler.github.io"
+baseurl: ""
+
+# Blog posts land at /blog/<title>/. The date comes from the filename.
+permalink: /blog/:title/
+
+# One markdown file per paper/project in _research/. They're listed on the
+# homepage only; they don't get pages of their own.
+collections:
+  research:
+    output: false
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+exclude:
+  - README.md
