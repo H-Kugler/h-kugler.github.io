@@ -44,7 +44,7 @@ news:
   - date: "Jul 2026"
     text: Our paper *Two-Stage Causal Discovery with FLOP and DirectLiNGAM* was accepted at the [Causality for Decision Making](https://sites.google.com/view/uai-workshop-2026/home) workshop at UAI 2026 in Amsterdam. See you there!
   - date: "Sep 2025"
-    text: Started my PhD in the [Copenhagen Causality Lab](https://cocala.github.io) at the University of Copenhagen ([announcement](https://www.math.ku.dk/english/news/new-names/harald-kugler-phd-student/)).
+    text: Started my PhD in the [Copenhagen Causality Lab](https://cocala.github.io) at the University of Copenhagen.
   - date: "Oct 2024"
     text: Finished my M.Sc. in Machine Learning at the University of Tübingen.
 
