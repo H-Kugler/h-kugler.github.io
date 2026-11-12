@@ -2,9 +2,18 @@
 # The text of the site lives in markdown files — see README.md for where.
 
 title: Harald Kugler
-description: PhD student at the University of Copenhagen, working on causality.
+# Shown under your name in Google results and in link previews.
+description: PhD student in statistics at the University of Copenhagen, working on causal discovery in the Copenhagen Causality Lab.
 url: "https://h-kugler.github.io"
 baseurl: ""
+
+# Generates /sitemap.xml and /robots.txt so search engines find every page.
+plugins:
+  - jekyll-sitemap
+
+# Google Search Console ownership check: paste the code from the
+# "HTML tag" method here (just the content="…" value), then push.
+# google_site_verification: PASTE-CODE-HERE
 
 # Blog posts land at /blog/<title>/. The date comes from the filename.
 permalink: /blog/:title/
