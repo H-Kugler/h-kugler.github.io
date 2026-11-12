@@ -86,6 +86,8 @@ html { scroll-padding-top: 4.5rem; scroll-behavior: smooth; }
   transition: border-color 0.15s, color 0.15s, transform 0.15s;
 }
 .hero-links .icon { width: 18px; height: 18px; }
+/* arXiv has no good symbol, so its button shows the name instead */
+.hero-links a.wordmark { font-size: 10px; font-weight: 600; letter-spacing: -0.03em; }  /* same square as the icons */
 .hero-links a:hover { border-color: var(--accent); transform: translateY(-1px); }
 
 /* About text: lines up with the title column of the rows below -------- */

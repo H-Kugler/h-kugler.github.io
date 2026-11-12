@@ -14,13 +14,15 @@ affiliation: University of Copenhagen
 email: hku@math.ku.dk
 
 # Shown as icons under your name. The icon is picked from the label:
-# Email, GitHub, Google Scholar, LinkedIn, ORCID and CV have their own;
+# Email, GitHub, Google Scholar, arXiv, LinkedIn, ORCID and CV have their own;
 # anything else gets a plain link icon.
 links:
   - label: GitHub
     url: https://github.com/h-kugler
   - label: Google Scholar
     url: https://scholar.google.com/citations?user=SHuDtHwAAAAJ
+  - label: arXiv
+    url: https://arxiv.org/a/kugler_h_1.html
   - label: LinkedIn
     url: https://www.linkedin.com/in/harald-kugler-9b63b7348/
   - label: ORCID
@@ -45,7 +47,9 @@ news:
   - date: "Sep 2026"
     text: Our paper *Causal discovery needs explicit epistemic standards* was accepted to the position paper track at NeurIPS 2026.
   - date: "Jul 2026"
-    text: Our paper *Two-Stage Causal Discovery with FLOP and DirectLiNGAM* was accepted at the [Causality for Decision Making](https://sites.google.com/view/uai-workshop-2026/home) workshop at UAI 2026 in Amsterdam.
+    text: Our paper *Two-Stage Causal Discovery with FLOP and DirectLiNGAM* was accepted at the [Causality for Decision Making](https://sites.google.com/view/uai-workshop-2026/home) workshop at UAI 2026 in Amsterdam. See you there!
+  - date: "Apr 2026"
+    text: I'll be at the European Causal Inference Meeting (EuroCIM 2026) in Oxford. Looking forward to seeing you there!
   - date: "Sep 2025"
     text: Started my PhD in the [Copenhagen Causality Lab](https://cocala.github.io) at the University of Copenhagen.
   - date: "Oct 2024"

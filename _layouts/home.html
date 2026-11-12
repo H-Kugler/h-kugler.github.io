@@ -12,8 +12,12 @@ layout: default
   <ul class="hero-links">
     {% if page.email %}<li><a href="#" data-email="{{ page.email | split: '' | reverse | join: '' }}" aria-label="Email">{% include icon.html name="email" %}</a></li>{% endif %}
     {% for link in page.links %}
-    {% assign icon = link.icon | default: link.label %}
+    {% assign icon = link.icon | default: link.label | downcase %}
+    {% if icon == "arxiv" %}
+    <li><a class="wordmark" href="{{ link.url | relative_url }}" title="arXiv">arXiv</a></li>
+    {% else %}
     <li><a href="{{ link.url | relative_url }}" aria-label="{{ link.label }}" title="{{ link.label }}">{% include icon.html name=icon %}</a></li>
+    {% endif %}
     {% endfor %}
   </ul>
 </header>
