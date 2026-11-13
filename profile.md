@@ -65,7 +65,11 @@ experience:
   - role: Research assistant
     organization: Technical University of Denmark
     years: "Apr–Aug 2025"
-    description: DTU Compute, supervised by Line Clemmensen.
+    description: Statistics and Data Analysis, DTU Compute, working with Line Clemmensen.
+  - role: Student research assistant
+    organization: University of Tübingen
+    years: "Feb–Jul 2024"
+    description: Machine Learning in Sustainable Energy Systems group.
   # - role: Research intern
   #   organization: …
   #   years: …

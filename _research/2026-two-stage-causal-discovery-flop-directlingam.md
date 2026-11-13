@@ -1,6 +1,6 @@
 ---
 title: Two-Stage Causal Discovery with FLOP and DirectLiNGAM
-authors: "**Harald Kugler**, Leonard Henckel, Sebastian Weichwald"
+authors: "*Harald Kugler*, Leonard Henckel, Sebastian Weichwald"
 venue: UAI 2026 workshop
 date: 2026-07-02  # acceptance date; sets the order, only the year is shown
 links:
